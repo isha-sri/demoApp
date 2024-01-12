@@ -1,0 +1,50 @@
+
+
+<main style="margin-left:50px;" class="main">
+  <h2>Choose Dataset</h2>
+  <!-- <ul>
+    <li><a href="#">OS</a></li>
+    <li><a href="#">GDP</a></li>
+    <li><a href="#">Movies</a></li>
+
+
+  </ul> -->
+  <!-- <div>
+    <input type="file" (change)="onFileChange($event)" />
+  </div> -->
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="OS">OS</mat-option>
+      <mat-option value="GDP">GDP</mat-option>
+      <mat-option value="Movies">Movies</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <p>You selected: {{selected}}</p>
+  <div style="margin-bottom:20px;">
+    
+    <button (click)="importExcelFromUrl()" mat-raised-button color="primary">Preview</button>
+    <!-- <button >Preview</button> -->
+  </div>
+  <ag-grid-angular
+  [rowData]="rowData"
+  [columnDefs]="colDefs"
+
+  class="ag-theme-quartz"
+  style="height: 500px;"
+  (gridReady)="onGridReady($event)"
+  [suppressExcelExport]="true"
+  >
+</ag-grid-angular>
+
+      <button style="margin-top:20px;" (click)="onBtExport()" mat-raised-button>Download</button>
+
+  
+
+</main>
+
+
+<!-- <router-outlet></router-outlet> -->
